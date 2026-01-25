@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <title>Client Name - Treatment & Booking</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- saved from url=(0088)file:///C:/Users/user/Downloads/Booking/Client%20Name%20-%20Treatment%20&%20Booking.html -->
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Client Name - Treatment &amp; Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Google-like font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./Client Name - Treatment &amp; Booking_files/css2" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { 
@@ -19,7 +19,7 @@
     body {
       font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: #202124;
-      background: #f1f3f4; /* Google light gray */
+      background: #ffffff;
       line-height: 1.6;
       position: relative;
     }
@@ -31,15 +31,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #ffffff;
-      border-bottom: 1px solid #dadce0;
-      position: sticky;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(218, 220, 224, 0.5);
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      right: 0;
+      z-index: 200;
       gap: 12px;
       width: 100%;
       max-width: 100vw;
       overflow: hidden;
+      transition: background 0.3s ease;
+    }
+    header.scrolled {
+      background: #ffffff;
+      border-bottom: 1px solid #dadce0;
     }
     .logo {
       font-weight: 500;
@@ -222,37 +230,83 @@
     }
 
     .page {
-      max-width: 960px;
       width: 100%;
-      margin: 0 auto;
-      padding: 20px 16px 40px;
+      margin: 0;
+      padding: 0;
       overflow-x: hidden;
+    }
+    .page-content {
+      padding-top: 0;
+      width: 100%;
     }
 
     /* HERO */
     .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      margin-bottom: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .hero-background video,
+    .hero-background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-background::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 960px;
+      padding: 80px 16px 40px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      margin-bottom: 32px; /* more space under hero */
+      gap: 24px;
+    }
+    .hero-text {
+      color: #ffffff;
     }
     .hero-text h1 {
       font-size: 1.6rem;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
       letter-spacing: 0.01em;
       font-weight: 500;
       line-height: 1.3;
+      color: #ffffff;
     }
     .hero-text p {
       font-size: 0.95rem;
-      color: #5f6368;
-      margin-bottom: 14px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 20px;
       line-height: 1.6;
     }
     .hero-cta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       align-items: center;
     }
     .btn-primary {
@@ -276,78 +330,151 @@
     }
     .hero-note {
       font-size: 0.82rem;
-      color: #5f6368;
+      color: rgba(255, 255, 255, 0.8);
     }
     .hero-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    .hero-gallery img {
-      height: 130px;
-      object-fit: cover;
-      border-radius: 12px;
-      background: #e8eaed;
-      width: 100%;
-      max-width: 100%;
+      display: none;
     }
 
-    /* CARD SECTIONS */
+    /* SECTIONS */
     .section {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 20px 16px;
-      margin-bottom: 24px; /* more vertical spacing between sections */
-      box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 1px 2px rgba(60, 64, 67, 0.15);
-      border: 1px solid #dadce0;
       width: 100%;
-      max-width: 100%;
+      padding: 80px 0;
+      margin: 0;
       overflow-x: hidden;
     }
+    .section-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 16px;
+      width: 100%;
+    }
     .section-header {
-      margin-bottom: 14px;
+      margin-bottom: 32px;
     }
     .section-header h2 {
-      font-size: 1.25rem;
-      margin-bottom: 6px;
+      font-size: 2rem;
+      margin-bottom: 12px;
       font-weight: 500;
       line-height: 1.3;
+      color: #202124;
     }
     .section-header p {
-      font-size: 0.9rem;
+      font-size: 1rem;
+      line-height: 1.6;
       color: #5f6368;
-      line-height: 1.5;
     }
 
     /* OVERVIEW */
-    .overview-body p + p {
-      margin-top: 10px;
+    .section.overview {
+      background: #ffffff;
+      color: #202124;
+    }
+    .section.overview .section-header {
+      margin-bottom: 32px;
+      margin-top: 0;
+    }
+    .section.overview .section-header h2 {
+      margin-bottom: 0;
+    }
+    .section.overview .section-header h2,
+    .section.overview .section-header p {
+      color: #202124;
+    }
+    .overview-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+    }
+    .overview-text {
+      flex: 1;
+    }
+    .overview-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #3c4043;
+      margin-bottom: 16px;
+    }
+    .overview-text p + p {
+      margin-top: 0;
+    }
+    .overview-image {
+      flex: 1;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .overview-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* BENEFITS */
-    .benefits-list {
-      list-style: none;
+    .section.benefits {
+      background: #ffffff;
+      color: #202124;
+    }
+    .section.benefits .section-header h2,
+    .section.benefits .section-header p {
+      color: #202124;
+    }
+    .benefits-grid {
       display: grid;
-      gap: 10px;
-      font-size: 0.9rem;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 32px;
     }
-    .benefits-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: #3c4043;
-    }
-    .benefits-icon {
-      color: #1e8e3e;
-      font-size: 0.9rem;
-      margin-top: 3px;
-    }
-
-    /* BOOKING */
-    .booking-layout {
+    .benefit-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       gap: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .benefit-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #e8eaed;
+    }
+    .benefit-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .benefit-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #202124;
+      margin: 0;
+    }
+    .benefit-desc {
+      font-size: 0.95rem;
+      color: #5f6368;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* BOOKING */
+    .section.booking {
+      background: #ffffff;
+      color: #202124;
+    }
+    .section.booking .section-header h2,
+    .section.booking .section-header p {
+      color: #202124;
+    }
+    .booking-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 32px;
     }
     
     /* Calendly-style booking widget */
@@ -387,7 +514,7 @@
       color: #202124;
     }
     .calendly-nav-btn {
-      background: none;
+      background: #ffffff;
       border: 1px solid #dadce0;
       border-radius: 6px;
       padding: 6px 10px;
@@ -529,6 +656,9 @@
       font-size: 0.9rem;
       color: #5f6368;
     }
+    .booking-details h3 {
+      color: #202124;
+    }
     .booking-details ul {
       list-style: none;
       margin-top: 8px;
@@ -538,46 +668,65 @@
     }
 
     /* FAQS */
+    .section.faqs {
+      background: #ffffff;
+      color: #202124;
+    }
+    .section.faqs .section-header h2,
+    .section.faqs .section-header p {
+      color: #202124;
+    }
     .faq-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 16px;
       font-size: 0.9rem;
+      margin-top: 32px;
     }
     .faq-item {
-      border-radius: 10px;
+      border-radius: 12px;
       background: #f8f9fa;
-      padding: 12px 14px;
+      padding: 20px;
       border: 1px solid #e0e0e0;
     }
     .faq-question {
       font-weight: 500;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
       color: #202124;
+      font-size: 1rem;
     }
     .faq-answer {
       color: #5f6368;
+      line-height: 1.6;
     }
 
     /* CONTACT */
+    .section.contact {
+      background: #000000;
+      color: #ffffff;
+    }
+    .section.contact .section-header h2,
+    .section.contact .section-header p {
+      color: #ffffff;
+    }
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
-      margin-top: 8px;
+      margin-top: 32px;
     }
     .contact-item {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 16px;
-      border-radius: 10px;
-      background: #f8f9fa;
-      border: 1px solid #e0e0e0;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transition: background 0.2s ease;
     }
     .contact-item:hover {
-      background: #f1f3f4;
+      background: rgba(255, 255, 255, 0.1);
     }
     .contact-icon {
       font-size: 1.3rem;
@@ -590,12 +739,12 @@
     }
     .contact-label {
       font-weight: 500;
-      color: #202124;
+      color: #ffffff;
       margin-bottom: 4px;
       display: block;
     }
     .contact-value {
-      color: #5f6368;
+      color: rgba(255, 255, 255, 0.8);
     }
     .contact-value a {
       color: #1a73e8;
@@ -607,12 +756,13 @@
 
     footer {
       text-align: center;
-      padding: 18px 0 28px;
+      padding: 40px 0;
       font-size: 0.8rem;
       color: #80868b;
       width: 100%;
       max-width: 100vw;
       overflow-x: hidden;
+      background: #ffffff;
     }
 
     /* Mobile-specific adjustments */
@@ -638,14 +788,26 @@
       .logo {
         font-size: 0.9rem;
       }
+      .hero-content {
+        padding: 80px 16px 40px;
+      }
       .hero-text h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
       .section {
-        padding: 18px 14px;
+        padding: 40px 0;
+      }
+      .section-content {
+        padding: 0 16px;
       }
       .section-header h2 {
-        font-size: 1.15rem;
+        font-size: 1.5rem;
+      }
+      .overview-layout {
+        flex-direction: column;
+      }
+      .benefits-grid {
+        grid-template-columns: 1fr;
       }
       .contact-item {
         padding: 14px;
@@ -667,30 +829,37 @@
         font-size: 1rem;
       }
       .page {
-        padding: 32px 20px 48px;
+        padding: 0;
       }
       .section {
-        padding: 22px 20px;
+        padding: 80px 0;
       }
-      .hero {
+      .section-content {
+        padding: 0 20px;
+      }
+      .overview-layout {
         flex-direction: row;
         align-items: center;
-        margin-bottom: 40px;
       }
-      .hero-text {
-        flex: 1.1;
-        padding-inline-end: 20px;
+      .overview-image {
+        height: 400px;
+      }
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .hero-content {
+        padding: 100px 20px 60px;
       }
       .hero-text h1 {
-        font-size: 1.9rem;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
       }
-      .hero-gallery {
-        flex: 1;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-      .hero-gallery img {
-        height: 160px;
+      .hero-text p {
+        font-size: 1.1rem;
+        margin-bottom: 24px;
       }
       .booking-layout {
         flex-direction: row;
@@ -707,15 +876,15 @@
 </head>
 <body>
   <header>
-    <div class="logo" data-i18n="logo">CLIENT LOGO</div>
+    <div class="logo" data-i18n="logo">LOGO</div>
 
     <div class="header-controls">
       <nav class="header-nav" aria-label="Primary">
-        <a href="#overview" data-i18n="nav_overview">Overview</a>
-        <a href="#benefits" data-i18n="nav_benefits">Benefits</a>
-        <a href="#booking" data-i18n="nav_book">Book</a>
-        <a href="#faqs" data-i18n="nav_faqs">FAQs</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#overview" data-i18n="nav_overview">Overview</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#benefits" data-i18n="nav_benefits">Benefits</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#booking" data-i18n="nav_book">Book</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#faqs" data-i18n="nav_faqs">FAQs</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#contact" data-i18n="nav_contact">Contact</a>
       </nav>
 
       <label for="lang" class="sr-only" data-i18n="lang_label" style="position:absolute;left:-9999px;">Language</label>
@@ -737,11 +906,11 @@
         <button class="mobile-nav-close" aria-label="Close menu" id="menuClose">×</button>
       </div>
       <nav class="mobile-nav-links" aria-label="Mobile navigation">
-        <a href="#overview" data-i18n="nav_overview">Overview</a>
-        <a href="#benefits" data-i18n="nav_benefits">Benefits</a>
-        <a href="#booking" data-i18n="nav_book">Book</a>
-        <a href="#faqs" data-i18n="nav_faqs">FAQs</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#overview" data-i18n="nav_overview">Overview</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#benefits" data-i18n="nav_benefits">Benefits</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#booking" data-i18n="nav_book">Book</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#faqs" data-i18n="nav_faqs">FAQs</a>
+        <a href="file:///C:/Users/user/Downloads/Booking/Booking.html#contact" data-i18n="nav_contact">Contact</a>
       </nav>
       <div class="mobile-lang-wrapper">
         <label for="mobile-lang" class="mobile-lang-label" data-i18n="lang_label">Language</label>
@@ -754,9 +923,20 @@
     </div>
   </div>
 
-  <div class="page">
-    <!-- HERO -->
-    <section class="hero">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-background">
+      <!-- You can use either a video or an image here -->
+      <!-- Option 1: Video background (uncomment to use) -->
+      <!--
+      <video autoplay muted loop playsinline>
+        <source src="your-video.mp4" type="video/mp4">
+      </video>
+      -->
+      <!-- Option 2: Image background (currently active) -->
+      <img src="./Client Name - Treatment &amp; Booking_files/photo-1559757148-5c350d0d3c56" alt="Background">
+    </div>
+    <div class="hero-content">
       <div class="hero-text">
         <h1 data-i18n="hero_headline">Main headline about the treatment</h1>
         <p>
@@ -764,70 +944,83 @@
           <span data-i18n="hero_subtitle_2">and who it is for.</span>
         </p>
         <div class="hero-cta">
-          <button class="btn-primary"
-            onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">
+          <button class="btn-primary" onclick="document.getElementById(&#39;booking&#39;).scrollIntoView({ behavior: &#39;smooth&#39; })">
             <span data-i18n="hero_cta">Book an appointment</span>
           </button>
           <span class="hero-note" data-i18n="hero_note">Takes less than 1 minute to reserve.</span>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="hero-gallery">
-        <!-- Replace with real images -->
-        <img src="https://via.placeholder.com/400x300?text=Photo+1" alt="Treatment photo 1" />
-        <img src="https://via.placeholder.com/400x300?text=Photo+2" alt="Treatment photo 2" />
-        <img src="https://via.placeholder.com/400x300?text=Photo+3" alt="Treatment photo 3" />
-        <img src="https://via.placeholder.com/400x300?text=Photo+4" alt="Treatment photo 4" />
-      </div>
-    </section>
-
+  <div class="page">
+    <div class="page-content">
     <!-- OVERVIEW -->
-    <section id="overview" class="section">
-      <div class="section-header">
-        <h2 data-i18n="overview_title">Overview</h2>
-        <p data-i18n="overview_subtitle">A quick explanation of what the treatment is and how it works.</p>
-      </div>
-      <div class="overview-body">
-        <p>
-          <span data-i18n="overview_p1_1">This is where you describe the treatment in clear, simple language:</span>
-          <span data-i18n="overview_p1_2">what it is, how long it takes, and what someone should expect before,</span>
-          <span data-i18n="overview_p1_3">during, and after the session.</span>
-        </p>
-        <p>
-          <span data-i18n="overview_p2_1">You can also mention who it is best suited for and any important notes</span>
-          <span data-i18n="overview_p2_2">such as "non-invasive" or "no downtime".</span>
-        </p>
+    <section id="overview" class="section overview">
+      <div class="section-content">
+        <div class="overview-layout">
+          <div class="overview-text">
+            <h2 class="overview-title" data-i18n="overview_title">Overview</h2>
+        
+            <p>
+              <span data-i18n="overview_p1_1">This is where you describe the treatment in clear, simple language:</span>
+              <span data-i18n="overview_p1_2">what it is, how long it takes, and what someone should expect before,</span>
+              <span data-i18n="overview_p1_3">during, and after the session.</span>
+            </p>
+        
+            <p>
+              <span data-i18n="overview_p2_1">You can also mention who it is best suited for and any important notes</span>
+              <span data-i18n="overview_p2_2">such as "non-invasive" or "no downtime".</span>
+            </p>
+          </div>
+        
+          <div class="overview-image">
+            <img src="./Client Name - Treatment &amp; Booking_files/photo-1559757148-5c350d0d3c56(1)" alt="Treatment overview">
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- BENEFITS -->
-    <section id="benefits" class="section">
-      <div class="section-header">
-        <h2 data-i18n="benefits_title">Benefits</h2>
-        <p data-i18n="benefits_subtitle">Why this treatment is worth booking.</p>
+    <section id="benefits" class="section benefits">
+      <div class="section-content">
+        <div class="section-header">
+          <h2 data-i18n="benefits_title">Benefits</h2>
+          <p data-i18n="benefits_subtitle">Why this treatment is worth booking.</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-image">
+              <img src="file:///C:/Users/user/Downloads/Booking/Booking_files/photo-1576091160399-112ba8d25d1f" alt="Benefit 1">
+            </div>
+            <h3 class="benefit-title" data-i18n="benefit_1_title">Benefit one</h3>
+            <p class="benefit-desc" data-i18n="benefit_1_desc">- Short line explaining a key result or outcome.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-image">
+              <img src="./Client Name - Treatment &amp; Booking_files/photo-1559757175-0eb30cd8c063" alt="Benefit 2">
+            </div>
+            <h3 class="benefit-title" data-i18n="benefit_2_title">Benefit two</h3>
+            <p class="benefit-desc" data-i18n="benefit_2_desc">- Focus on how the client feels or what changes.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-image">
+              <img src="./Client Name - Treatment &amp; Booking_files/photo-1576091160550-2173dba999ef" alt="Benefit 3">
+            </div>
+            <h3 class="benefit-title" data-i18n="benefit_3_title">Benefit three</h3>
+            <p class="benefit-desc" data-i18n="benefit_3_desc">- Address a common problem this treatment solves.</p>
+          </div>
+        </div>
       </div>
-      <ul class="benefits-list">
-        <li>
-          <span class="benefits-icon">✓</span>
-          <span><strong data-i18n="benefit_1_title">Benefit one</strong> <span data-i18n="benefit_1_desc">- Short line explaining a key result or outcome.</span></span>
-        </li>
-        <li>
-          <span class="benefits-icon">✓</span>
-          <span><strong data-i18n="benefit_2_title">Benefit two</strong> <span data-i18n="benefit_2_desc">- Focus on how the client feels or what changes.</span></span>
-        </li>
-        <li>
-          <span class="benefits-icon">✓</span>
-          <span><strong data-i18n="benefit_3_title">Benefit three</strong> <span data-i18n="benefit_3_desc">- Address a common problem this treatment solves.</span></span>
-        </li>
-      </ul>
     </section>
 
     <!-- BOOKING / CALENDAR -->
-    <section id="booking" class="section">
-      <div class="section-header">
-        <h2 data-i18n="booking_title">Book your appointment</h2>
-        <p data-i18n="booking_subtitle">Select a date and time that works best for you.</p>
-      </div>
+    <section id="booking" class="section booking">
+      <div class="section-content">
+        <div class="section-header">
+          <h2 data-i18n="booking_title">Book your appointment</h2>
+          <p data-i18n="booking_subtitle">Select a date and time that works best for you.</p>
+        </div>
 
       <div class="booking-layout">
         <div class="calendly-widget">
@@ -838,7 +1031,7 @@
           
           <div class="calendly-month-nav">
             <button class="calendly-nav-btn" id="prevMonth" aria-label="Previous month">‹</button>
-            <div class="calendly-month-name" id="currentMonth"></div>
+            <div class="calendly-month-name" id="currentMonth">January 2026</div>
             <button class="calendly-nav-btn" id="nextMonth" aria-label="Next month">›</button>
           </div>
           
@@ -852,7 +1045,7 @@
             <div class="calendly-weekday" data-i18n="day_sat">Sat</div>
           </div>
           
-          <div class="calendly-dates" id="calendarDates"></div>
+          <div class="calendly-dates" id="calendarDates"><div class="calendly-date disabled"></div><div class="calendly-date disabled"></div><div class="calendly-date disabled"></div><div class="calendly-date disabled"></div><div class="calendly-date disabled">1</div><div class="calendly-date disabled">2</div><div class="calendly-date disabled">3</div><div class="calendly-date disabled">4</div><div class="calendly-date disabled">5</div><div class="calendly-date disabled">6</div><div class="calendly-date disabled">7</div><div class="calendly-date disabled">8</div><div class="calendly-date disabled">9</div><div class="calendly-date disabled">10</div><div class="calendly-date disabled">11</div><div class="calendly-date disabled">12</div><div class="calendly-date disabled">13</div><div class="calendly-date disabled">14</div><div class="calendly-date disabled">15</div><div class="calendly-date disabled">16</div><div class="calendly-date disabled">17</div><div class="calendly-date disabled">18</div><div class="calendly-date disabled">19</div><div class="calendly-date disabled">20</div><div class="calendly-date disabled">21</div><div class="calendly-date available today" data-date="2026-01-21T22:00:00.000Z">22</div><div class="calendly-date available" data-date="2026-01-22T22:00:00.000Z">23</div><div class="calendly-date available" data-date="2026-01-23T22:00:00.000Z">24</div><div class="calendly-date available" data-date="2026-01-24T22:00:00.000Z">25</div><div class="calendly-date available" data-date="2026-01-25T22:00:00.000Z">26</div><div class="calendly-date available" data-date="2026-01-26T22:00:00.000Z">27</div><div class="calendly-date available" data-date="2026-01-27T22:00:00.000Z">28</div><div class="calendly-date available" data-date="2026-01-28T22:00:00.000Z">29</div><div class="calendly-date disabled">30</div><div class="calendly-date available" data-date="2026-01-30T22:00:00.000Z">31</div></div>
           
           <div class="calendly-times" id="timeSlots">
             <div class="calendly-times-title" data-i18n="calendly_select_time">Select a time</div>
@@ -876,14 +1069,16 @@
           </p>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- FAQS -->
-    <section id="faqs" class="section">
-      <div class="section-header">
-        <h2 data-i18n="faqs_title">FAQs</h2>
-        <p data-i18n="faqs_subtitle">Answers to common questions before booking.</p>
-      </div>
+    <section id="faqs" class="section faqs">
+      <div class="section-content">
+        <div class="section-header">
+          <h2 data-i18n="faqs_title">FAQs</h2>
+          <p data-i18n="faqs_subtitle">Answers to common questions before booking.</p>
+        </div>
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-question" data-i18n="faq_q1">How long does the treatment take?</div>
@@ -904,14 +1099,16 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- CONTACT US -->
-    <section id="contact" class="section">
-      <div class="section-header">
-        <h2 data-i18n="contact_title">Contact Us</h2>
-        <p data-i18n="contact_subtitle">Get in touch with us through any of these channels.</p>
-      </div>
+    <section id="contact" class="section contact">
+      <div class="section-content">
+        <div class="section-header">
+          <h2 data-i18n="contact_title">Contact Us</h2>
+          <p data-i18n="contact_subtitle">Get in touch with us through any of these channels.</p>
+        </div>
       <div class="contact-grid">
         <div class="contact-item">
           <div class="contact-icon">📱</div>
@@ -939,15 +1136,32 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
+    </div>
   </div>
 
-  <footer>
-    &copy; <span id="year"></span> <span data-i18n="footer_rights">Client Name. All rights reserved.</span>
+  <footer style="
+    padding-top: 20px;
+    padding-bottom: 20px;
+">
+    © <span id="year">2026</span> <span data-i18n="footer_rights">Client Name. All rights reserved.</span>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    function handleScroll() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
 
     // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
@@ -1128,7 +1342,7 @@
       },
       en: {
         page_title: "Client Name - Treatment & Booking",
-        logo: "CLIENT LOGO",
+        logo: "LOGO",
         lang_label: "Language",
         nav_overview: "Overview",
         nav_benefits: "Benefits",
@@ -1362,5 +1576,5 @@
       }
     };
   </script>
-</body>
-</html>
+
+</body></html>
