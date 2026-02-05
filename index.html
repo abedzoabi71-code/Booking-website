@@ -839,9 +839,25 @@
         gap: 10px;
       }
       .hero-gallery {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 12px;
+        margin-top: 60px; /* push images further below buttons on mobile */
+      }
+      .hero-gallery-item {
+        flex: 0 0 46%;
+        max-width: 46%;
+        aspect-ratio: 3/4;
+      }
+      .hero-gallery-item:nth-child(3) {
+        display: none;
+      }
+      .hero-gallery-center {
+        margin-top: 0;
+      }
+      .hero-gallery-item:nth-child(1) {
+        transform: translateY(-40px); /* visually raise the left image */
       }
       .btn-header-book {
         display: none;
